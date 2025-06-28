@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本国憲法(9-30条) 暗記テスト</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen" class="screen">
+            <h1>日本国憲法<br>(9条〜30条) 暗記テスト</h1>
+            <p>全33問の四択テストです。<br>あなたの理解度をチェックしましょう！</p>
+            <button onclick="startQuiz()">テスト開始</button>
+        </div>
+
+        <div id="quiz-screen" class="screen" style="display: none;">
+            <div id="quiz-header">
+                <span id="question-number"></span>
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+            <p id="question-text"></p>
+            <div id="choices-container">
+                <!-- 選択肢がここに動的に生成されます -->
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen" style="display: none;">
+            <h2>テスト結果</h2>
+            <p id="score-text"></p>
+            <p id="message-text"></p>
+            <div id="wrong-answers-container">
+                <h3>間違えた問題の確認</h3>
+                <!-- 間違えた問題がここに表示されます -->
+            </div>
+            <button onclick="location.reload()">もう一度挑戦する</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
