@@ -246,10 +246,10 @@ function loadQuestion() {
     questionNumberEl.textContent = `第 ${currentQuestionIndex + 1} 問 / ${quizData.length}`;
     progressBar.style.width = `${((currentQuestionIndex + 1) / quizData.length) * 100}%`;
     
-    // questionTextの改行を<br>に変換し、プレースホルダーを装飾
+    // questionTextの改行を<br>に変換し、プレースホルダーを装飾（正規表現gフラグですべて置換）
     questionTextEl.innerHTML = currentQuestion.question
         .replace(/\n/g, '<br>')
-        .replace('`[ 　 ]`', '<span style="color: #c62828; font-weight: bold; background-color: #fff9c4; padding: 2px 4px; border-radius: 4px;">[ 　 ]</span>');
+        .replace(/`\[ 　 \]`/g, '<span style="color: #c62828; font-weight: bold; background-color: #fff9c4; padding: 2px 4px; border-radius: 4px;">[ 　 ]</span>');
 
     // 選択肢をシャッフル
     const shuffledChoices = [...currentQuestion.choices];
@@ -341,6 +341,3 @@ function showResult() {
         wrongAnswersContainer.innerHTML = '<h3>全問正解です！</h3>';
     }
 }
-// 初回ロード時にstartQuizを呼ばず、ボタンクリックを待つように修正
-// ただし、もしHTML側にonclick="startQuiz()"がない場合は、ここで呼び出す必要がある。
-// 今回のHTMLにはあるので、このままでOK。
